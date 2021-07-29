@@ -1,0 +1,102 @@
+
+
+<mat-sidenav-container fullscreen>
+  <mat-sidenav mode="side" #sidenav opened position="start">
+          <div class="content" *ngIf='isLoggedIn() '>
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item active" *ngIf='isAdmin()'>
+            <a class="nav-link " routerLink="./admin-student-request-list">Student Requests</a>
+          </li>
+          <li class="nav-item active" *ngIf='isAdmin()'>
+            <a class="nav-link " routerLink="./admin-tutor-request-list">Tutor Requests</a>
+          </li>
+          <li class="nav-item active" *ngIf='isAdmin()'>
+            <a class="nav-link " routerLink="./admin-tutor-list">Tutor List</a>
+          </li>
+
+          <li class="nav-item active" *ngIf='isAdmin()'>
+            <a class="nav-link " routerLink="./admin-student-list">Student List</a>
+
+          </li>
+          <li class="nav-item active" *ngIf='isAdmin()'>
+            <a class="nav-link " routerLink="./upload-status">Upload Status</a>
+          </li>
+          <li class="nav-item active" *ngIf='isAdmin()'>
+            <a class="nav-link " routerLink="./admin-download-status">Download Status</a>
+
+          </li>
+
+          <!-- <li class="nav-item active" *ngIf='isStudent() || isAdmin()'>
+            <a class="nav-link " routerLink="./admin-profile">Profile</a>
+          </li> -->
+
+      
+          <li class="nav-item active" *ngIf='isStudent()'>
+            <a class="nav-link " routerLink="./student-tutor-list"><button mat-icon-button ><mat-icon>view_carousel</mat-icon>Tutors</button></a>
+
+          </li>
+
+          <li class="nav-item active" *ngIf='isStudent()'>
+            <a class="nav-link " routerLink="./student-waiting-request"><button mat-icon-button ><mat-icon>timer</mat-icon>Waiting Requests</button></a>
+
+          </li>
+
+          <li class="nav-item active" *ngIf='isStudent()'>
+            <a class="nav-link " routerLink="./student-approved-request"><button mat-icon-button ><mat-icon>assignment_turned_in</mat-icon>Approved Requests</button></a>
+
+      
+          <li class="nav-item active" *ngIf='isTutor()'>
+            <a class="nav-link " routerLink="./tutor-students-request"><button mat-icon-button ><mat-icon>request_page</mat-icon>Student Requests</button>
+            </a>
+          </li>
+
+          <li class="nav-item active" *ngIf='isTutor()'>
+            <a class="nav-link " routerLink="./add-training"><button mat-icon-button ><mat-icon>add_task</mat-icon>Add Training</button></a>
+          </li>
+
+          <li class="nav-item active" *ngIf='isTutor()'>
+            <a class="nav-link " routerLink="./tutor-trainings"><button mat-icon-button ><mat-icon>local_library</mat-icon>My Trainings</button></a>
+          </li>
+
+          <li class="nav-item active" *ngIf='isTutor()'>
+            <a class="nav-link " routerLink="./tutor-students"><button mat-icon-button ><mat-icon>people_alt</mat-icon>Enrolled Students</button></a>
+          </li>
+          <li class="nav-item active" *ngIf='isTutor()'>
+            <a class="nav-link " routerLink="./download-status"><button mat-icon-button ><mat-icon>people_alt</mat-icon>Download report</button></a>
+          </li>
+          <li class="nav-item active" *ngIf='isTutor()'>
+            <a class="nav-link " routerLink="./add-subject"><button mat-icon-button ><mat-icon>topic</mat-icon>Add Subject</button></a>
+          </li>
+          
+          <!-- <li class="nav-item active" *ngIf='isTutor()'>
+            <a class="nav-link " routerLink="./tutor-feedback"><button mat-icon-button ><mat-icon>topic</mat-icon>Tutor Feedback</button></a>
+          </li>
+         -->
+      
+          <li class="nav-item active" (click)="logout()">
+            <a class="nav-link "><button mat-icon-button ><mat-icon>logout</mat-icon>Logout</button>
+             </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      TMS
+      
+    </mat-toolbar>
+    <div class="main-content">
+      
+    </div>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

@@ -1,0 +1,11 @@
+<app-header [navItems]="studentNav" *ngIf="studentNav"></app-header>
+    <div>
+        <form class="form-inline my-2  " >
+            <div class="form-group">
+                <label for="search"></label>
+                <input type="search" id="search" placeholder="Seach Tutor/Technology">
+                <input type="submit" (click)='search()' value="Search">
+            </div> 
+        </form>
+    </div>
+<router-outlet></router-outlet>

@@ -1,0 +1,45 @@
+<div class="col-md-6 offset-md-3"> 
+    <h4 class="text-center"> 
+        Upload Content 
+ 
+    </h4> 
+ 
+    <hr> 
+ 
+    <!--    --> 
+    <div class="row"> 
+ 
+        <div class="form-group"> 
+            <label for="trainingInfoId"> 
+                        Training Id: {{id}}
+                    </label> 
+            <input type="hidden" name="trainingInfoId" class="form-control"> 
+ 
+        </div> 
+    </div> 
+ 
+    <div class="row"> 
+ 
+        <div class="form-group"> 
+            <label for="tutorId"> 
+                        Tutor Id:             {{profileData}}
+                    </label> 
+            <input type="hidden" name="tutorId" class="form-control"> 
+ 
+        </div> 
+    </div> 
+    <label class="btn btn-dark m-2"> 
+            <input type="file" (change)="selectFile($event)" multiple="multiple" /> 
+          </label> 
+    <div class="btn-group float-right"> 
+        <button class="btn btn-outline-dark" id="reset" type="reset"> 
+                Reset
+            </button> &nbsp;&nbsp; 
+        <button class="btn btn-outline-dark" type="submit" (click)="addNewContent()"> 
+                Upload 
+            </button> 
+    </div> 
+ 
+ 
+ 
+</div>

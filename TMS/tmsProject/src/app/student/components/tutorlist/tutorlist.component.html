@@ -1,0 +1,44 @@
+
+<div *ngIf='tutorList && tutorList != null' class="col-md-6 mx-auto">
+    <form>
+        <div class="form-group col-md-4 my-2">
+            <input class="form-control" type="text" id="search" name="search" [(ngModel)]='searchQuery' placeholder="Technology/Tutor">
+        </div>
+
+    </form>
+    <!-- <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Tutor Name</th>
+                <th scope="col">Tu4th>
+                <th scope="col">Tutor Technology</th>
+                <th scope="col">Request</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let t of tutorList | filter: searchQuery'>
+                <td>{{t.userName}}</td>
+                <td>{{t.userEmail}}</td>
+                <td>{{t.technologyName}}</td>
+                <td><button class="btn btn-primary" (click)='getEnroll(t)' [disabled]='t.isEnrolled ? true : null '>{{t.isEnrolled ? "Requested" : "Enroll"}}</button></td>
+
+            </tr>
+        </tbody>
+
+    </table> -->
+    <div class="col-md-12 ">
+        <div class="row">
+            <div class="card col-md-3 mx-2 my-2" style="width: 18rem;" *ngFor='let t of tutorList | filter: searchQuery'>
+                <div class="card-body ">
+                  <h5 class="card-title">{{t.technologyName}}</h5>
+                  <p class="card-text text-muted">Author: {{t.userName}}</p>
+                  <p class="card-text text-muted">Contact: {{t.userEmail}}</p>
+                  <button class="btn btn-primary" (click)='getEnroll(t)' [disabled]='t.isEnrolled ? true : null '>{{t.isEnrolled ? "Requested" : "Enroll"}}</button>
+                  
+                </div>
+              </div>
+        </div>
+    </div>
+    
+
+</div>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Calculator</title>
+    <link rel="stylesheet" href="../css/index.css" type="text/css">
+    <script src="../js/index.js" defer></script>
+</head>
+<body>
+   <section>
+   <div class="display">   
+    <p id="output" style="color: beige;font-size: 35px;">0</p>
+   </div>
+    <div class="first-row">
+       <button id="btn-r1-1" style="width: 138px;" onclick="square()">𝒙<sup>2</sup></button>
+       <button id="btn-r1-2" style="width: 138px;" onclick="cube()">𝒙<sup>3</sup></button>
+      
+    </div>
+    <div class="Second-row">
+        <button id="btn-r2-1" onclick="clearOutput()" >CE</button>
+        <button id="btn-r2-2" onclick="clearOutput()">C</button>
+        <button id="btn-r3-3" value="" onclick="root()">√</button>
+        <button id="btn-r1-3"  onclick="backspace()">⌫</button>
+     </div>
+     <div class="Third-row">
+        <button id="btn-r3-1" value="7" onclick="display('7')">7</button>
+        <button id="btn-r3-2" value="8" onclick="display('8')">8</button>
+        <button id="btn-r3-3" value="9" onclick="display('9')">9</button>
+        <button id="btn-r3-4"  value="*" onclick="display('*')">X</button>
+     </div>
+     <div class="Fourth-row">
+        <button id="btn-r4-1" value="4" onclick="display('4')">4</button>
+        <button id="btn-r4-2" value="5" onclick="display('5')">5</button>
+        <button id="btn-r4-3" value="6" onclick="display('6')">6</button>
+        <button id="btn-r4-4" value="-" onclick="display('-')">-</button>
+     </div>
+     <div class="Fifth-row">
+        <button id="btn-r5-1" value="1" onclick="display('1')">1</button>
+        <button id="btn-r5-2" value="2" onclick="display('2')">2</button>
+        <button id="btn-r5-3"  value="3" onclick="display('3')">3</button>
+        <button id="btn-r5-4"  value="+"onclick="display('+')">+</button>
+     </div>
+     <div class="Fifth-row">
+        <button id="btn-r6-1" value="0"  onclick="display('0')">0</button>
+        <button id="btn-r6-2"  value="." onclick="display('.')">.</button>
+        <button id="btn-r6-3"  value="=" onclick="solve()">=</button>
+        <button id="btn-r5-4"  value="/" onclick="display('/')">/</button>
+       
+     </div>
+   
+   </section>
+</body>
+</html>

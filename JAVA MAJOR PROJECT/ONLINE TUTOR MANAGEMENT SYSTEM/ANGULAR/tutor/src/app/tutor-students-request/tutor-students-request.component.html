@@ -1,0 +1,70 @@
+  
+<!-- <table id="example" class="table table-striped" style="width:100%" *ngIf='merged && merged.length; else norequest'>
+       <thead>
+    <tr>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">TrainingName</th>
+      <th scope="col">Request Date</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+    <tbody >
+    
+      
+            <tr *ngFor='let i of merged '>
+                <td>{{i.firstName}}</td>
+                <td>{{i.lastName}}</td>
+                <td>{{i.trainingName}}</td>
+                <td>{{i.raisedOn | date:'MM/dd/yyyy'}}</td>
+                <td><button class="btn btn-primary" (click)="approveRequest(i)">Approve</button>
+                <button class="btn btn-danger" (click)="deleteRequest(i.trainingRequestId)">Reject</button>
+                </td>
+            </tr>
+
+    
+ 
+
+    
+      </tbody>  
+    </table> -->
+    
+   <!-- <ng-template #norequest>
+        <h4 [ngStyle]="{'background-color': 'lightgrey','color':'#CC313D','text-align':'center'}">  No Requests  Available !!!</h4>
+      </ng-template> -->
+
+        <div class="mat-elevation-z8"> 
+    <mat-table [dataSource]="merged" matSort> 
+      <ng-container matColumnDef="sn">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> SN. </mat-header-cell>
+    <mat-cell *matCellDef="let element;let i=index">{{ i + 1 }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Name"> 
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell> 
+            <mat-cell *matCellDef="let element">{{element.firstName}}  {{element.lastName}}</mat-cell> 
+        </ng-container> 
+        <ng-container matColumnDef="TrainingName"> 
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Training Name</mat-header-cell> 
+            <mat-cell *matCellDef="let element">{{element.trainingName}}</mat-cell> 
+        </ng-container> 
+        
+        <ng-container matColumnDef="RequestDate"> 
+            <mat-header-cell *matHeaderCellDef>Request Date</mat-header-cell> 
+            <mat-cell *matCellDef="let element">{{element.raisedOn | date}}</mat-cell> 
+        </ng-container> 
+          <ng-container matColumnDef="Action"> 
+            <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell> 
+            <mat-cell *matCellDef="let row" style="margin-right: 30px;"> 
+                <button mat-raised-button color="primary" (click)="approveRequest(row)">Approve</button>
+                 <button mat-raised-button color="warn" (click)="deleteRequest(row.trainingRequestId)">Reject</button>
+            </mat-cell> 
+ 
+        </ng-container> 
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row> 
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> 
+        
+    </mat-table> 
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons> 
+    </mat-paginator> 
+</div>
+  

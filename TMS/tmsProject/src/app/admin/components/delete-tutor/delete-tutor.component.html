@@ -1,0 +1,24 @@
+
+<section class="container mt-3">
+    <h2 class="text-center">TUTORS</h2>
+
+<table class="table table-dark table-striped" >
+    <thead>
+      <tr>
+        <th scope="col">User Name</th>
+        <th scope="col">User Email</th>
+        <th scope="col">Approval Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let item of tutors'>
+        <th scope="row">{{item.userName}}</th>
+        <td>{{item.userEmail}}</td>
+        <td>{{item.approvalStatus}}</td>
+        <td><button class="btn btn-primary" (click)="delete(item.userId)">Delete</button></td>
+      </tr>
+      
+    </tbody>
+  </table>
+</section>

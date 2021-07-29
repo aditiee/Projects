@@ -1,0 +1,22 @@
+<div class="container">
+<h2>View feedback</h2>
+<button (click) = "getAllFeedbackByTutor(2)" class="btn btn-info">view feedback</button>   
+
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>Student Name</th>
+        <th>Remarks</th>
+        <th>Rating</th>
+        
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor = "let fR of feedbackArray; let i=index ">
+        <td>{{studentArray[i].firstName}} {{studentArray[i].middleName}} {{studentArray[i].lastName}}</td>
+        <td> {{fR.remarks}} </td>
+        <td>{{fR.rating}} </td>
+        
+    </tr>
+</tbody>
+</table>

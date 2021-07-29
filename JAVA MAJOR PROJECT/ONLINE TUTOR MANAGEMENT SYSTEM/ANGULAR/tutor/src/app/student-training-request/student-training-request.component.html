@@ -1,0 +1,16 @@
+
+ <div class="row" *ngIf="traininginfo">
+  <div class="card" style="width:18rem;">
+  <div class="card-body">
+    <p class="card-title">{{traininginfo.firstName}} {{traininginfo.lastName}}</p>
+        <p class="card-text">{{traininginfo.trainingName}}</p>
+    <p class="card-text">{{traininginfo.description}}</p>
+    <p class="card-text">Created On : {{traininginfo.createdOn | date}}</p>
+    
+    <button class="btn btn-primary" (click)="sendRequest(traininginfo)" >Follow</button>
+    <!-- <button class="btn btn-primary">UnFollow</button> -->
+
+  </div>
+  
+</div>
+</div> 

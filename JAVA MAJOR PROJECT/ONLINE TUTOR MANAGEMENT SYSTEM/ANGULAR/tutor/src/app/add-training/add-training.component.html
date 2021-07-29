@@ -1,0 +1,88 @@
+<div class="col-md-6 offset-md-3">
+    <h4 class="text-center">
+        Add Training
+    </h4>
+    <hr>
+    <form #addTraining='ngForm' (ngSubmit)='addNewTraining(addTraining)'>
+        <!--    -->
+                 <div class="row">
+
+                <div class="form-group">
+                    <label for="tutorId">
+                        Tutor Id:
+                    </label>
+                    <input type="hidden" name="tutorId" class="form-control" #tutorId="ngModel" 
+                    [(ngModel)]='profiledata.userId'>{{profiledata.userId}}
+                
+                </div>
+            </div>
+
+                
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="subjectName">
+                        Subject Name:
+                    </label>
+                    <select  class="form-control" id="subjectId" name="subjectId" data-live-search="true" #subjectId="ngModel" ngModel required>
+      <option *ngFor="let sub of subjectList" [value]="sub.subjectId">{{sub.subjectName}}</option> -->
+           
+    </select>
+                    
+                </div>
+            </div>
+        </div>
+            <div class="row">
+
+                <div class="form-group">
+                    <label for="trainingName">
+                        Training Name:
+                    </label>
+                    <input type="text" name="trainingName" class="form-control" #trainingName="ngModel" ngModel required
+                    placeholder="Enter Training Name"      minlength="2">
+                    <div *ngIf='trainingName.touched && trainingName.invalid'>
+                        <p class="text-danger" *ngIf='trainingName.errors'>
+                            *This field is mandatory
+                        </p>
+                        <p class="text-danger" *ngIf='trainingName.errors'>
+                            *This field minimum length is 2
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="desc">
+                        Training details:
+                    </label>
+                    <input type="text" name="desc" class="form-control" #desc="ngModel" ngModel
+                    placeholder="desc(Max Length=20)" maxlength="20"  minlength="3">
+                    <div *ngIf='desc.touched && desc.invalid'>
+                        <p class="text-danger" *ngIf='desc.errors'>
+                            *This field is mandatory
+                        </p>
+                        <p class="text-danger" *ngIf='desc.errors'>
+                            *This field minimum length is 3
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-group float-right">
+            <button class="btn btn-outline-dark" id="reset" type="reset">
+                Reset
+            </button>
+            &nbsp;&nbsp;
+            <button class="btn btn-outline-dark" type="submit" [disabled]='addTraining.invalid'>
+                Add
+            </button>
+        </div>
+
+         <div class="text-danger" *ngIf='response' id="errorMsg">
+            {{response.description}}
+        </div> 
+
+    </form>
+</div>

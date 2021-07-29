@@ -1,0 +1,71 @@
+<div class="col-md-6 offset-md-3">
+    <h4 class="text-center">
+        Add Subject
+    </h4>
+    <hr>
+    <form #addSubject='ngForm' (ngSubmit)='addNewSubject(addSubject)'>
+        <!--    -->
+               
+
+        <div class="row">
+
+                <div class="form-group">
+                    <label for="tutorId">
+                        Tutor Id:
+                    </label>
+                    <input type="hidden" name="createdBy" class="form-control" #createdBy="ngModel" 
+                    [(ngModel)]='profiledata.userId'>{{profiledata.userId}}
+                
+                </div>
+            </div>
+                
+            <div class="row">
+
+                <div class="form-group">
+                    <label for="subjectName">
+                        Subject Name:
+                    </label>
+                    <input type="text" name="subjectName" class="form-control" #subjectName="ngModel" ngModel required
+                    placeholder="Enter Training Name"      minlength="2">
+                    <div *ngIf='subjectName.touched && subjectName.invalid'>
+                        <p class="text-danger" *ngIf='subjectName.errors'>
+                            *This field is mandatory
+                        </p>
+                        <p class="text-danger" *ngIf='subjectName.errors'>
+                            *This field minimum length is 2
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="desc">
+                        Subject description:
+                    </label>
+                    <input type="text" name="description" class="form-control" #description="ngModel" ngModel
+                    placeholder="description(Max Length=20)" maxlength="20"  minlength="3">
+                    <div *ngIf='description.touched && description.invalid'>
+                        <p class="text-danger" *ngIf='description.errors'>
+                            *This field is mandatory
+                        </p>
+                        <p class="text-danger" *ngIf='description.errors'>
+                            *This field minimum length is 3
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-group float-right">
+            <button class="btn btn-outline-dark" id="reset" type="reset">
+                Reset
+            </button>
+            &nbsp;&nbsp;
+            <button class="btn btn-outline-dark" type="submit" [disabled]='addSubject.invalid'>
+                Add
+            </button>
+        </div>
+
+    </form>
+</div>

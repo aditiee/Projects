@@ -1,0 +1,60 @@
+<button (click)='getMaterialList()'>Get Material</button>
+<div *ngIf='materialList && materialList != null'>
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope="col">File Name</th>
+                <th scope="col">File Type</th>
+                <th scope="col">Technology Name</th>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let m of materialList'>
+                <td>{{m.fileName}}</td>
+                <td>{{m.fileType}}</td>
+                <td>{{m.belongsTechnology.technologyName}}</td>
+                <td><button class="btn btn-primary" (click)='downloadMaterial(m.materialId)'>Download</button></td>
+                <td><button class="btn btn-success" (click)="show(m)">Feedback</button></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>
+<!-- modal feedback form -->
+<div class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Feedback Form</h4>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                    <input type="hidden" formControlName="rating" [ngModel]="selectedValue">
+                    <p>Rate this Course</p>
+                    <ul id="rating" class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
+                        <li (click)="countStar(star)" [ngClass]="{'selected': (star <= selectedValue)}">
+                            <i class="fa fa-star"></i>
+                        </li>
+                    </ul>
+
+                    <div class="form-group">
+                        <label>Feedback</label>
+                        <input type="text" formControlName="feedback" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.feedback.errors }" [ngModel]="feedback" />
+                        <div *ngIf="submitted && f.feedback.errors" class="text-danger">
+                            Write your feedback
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="hide()">Close</button>
+
+            </div>
+        </div>
+    </div>

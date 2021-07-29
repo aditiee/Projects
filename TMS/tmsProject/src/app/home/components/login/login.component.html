@@ -1,0 +1,98 @@
+<app-header></app-header>
+<div class="login-reg-panel">
+    <div class="login-info-box">
+      <h2>Have an account?</h2>
+      <!-- <p>Lorem ipsum dolor sit amet</p> -->
+      <label id="label-register" for="log-reg-show">Login</label>
+        <input type="radio"  name="active-log-panel" id="log-reg-show" checked="checked">
+    </div>
+  
+    <div class="register-info-box">
+      <h2>Don't have an account?</h2>
+      <!-- <p>Lorem ipsum dolor sit amet</p> -->
+      <label id="label-login" for="log-login-show">Register</label>
+      <input type="radio" name="active-log-panel" id="log-login-show">
+    </div>
+  
+    <div class="white-panel">
+  
+      <div class="login-show">
+        <form class="form" [formGroup]="loginform" (ngSubmit)="login()">
+          <h2>LOGIN</h2>
+          <input type="email" class="form-control" formControlName="emailld" placeholder="Email">
+          <span class="text-danger" *ngIf="l.emailld.touched && l.emailld.hasError('required')">Enter email Address</span>
+          
+          <span class="text-danger" *ngIf="l.emailld.touched && l.emailld.hasError('email')">Enter Valid email Address</span>
+  
+          <input type="password" class="form-control" formControlName="password" placeholder="Password">
+          <span class="text-danger" *ngIf="(l.password.touched || submitted) && l.password.hasError('required')">
+            Password is required
+          </span>
+          <span class="text-danger" *ngIf="l.password.touched && l.password.errors?.invalidPassword">
+            Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+            letter and 1 number
+          </span>
+          <input type="submit" [disabled]="!loginform.valid" value="Login">
+  
+        </form>
+      </div>
+  
+  
+  
+  
+  
+      <div class="register-show">
+        <h2>REGISTER</h2><br>
+        <form class="form" [formGroup]="registerform" (ngSubmit)="register()">
+          <input type="text" class="form-control" formControlName="username" placeholder="User Name">
+          <span class="text-danger" *ngIf="(f.username.touched || submitted) && f.username.hasError('required')">
+            User Name is required
+          </span><br>
+  
+          <input type="email" class="form-control" formControlName="email" placeholder="Email" required>
+  
+          <span class="text-danger" *ngIf="f.email.touched && f.email.hasError('required')">Enter email Address</span>
+          <span class="text-danger" *ngIf="f.email.touched && f.email.hasError('email')">Enter Valid email Address</span>
+          <span class="text-danger" *ngIf="(f.email.touched || submitted) && f.email.errors?.userNameNotAvailable">
+            User Email is already exist
+          </span> <br>
+  
+          <!-- <span class="text-danger"
+                *ngIf="(registerform.get('email').touched || submitted) && registerform.get('email').errors?.required">
+                Email is required
+               </span> -->
+  
+          <input type="password" class="form-control" formControlName="password" placeholder="Password">
+          <span class="text-danger" *ngIf="(f.password.touched || submitted) && f.password.hasError('required')">
+            Password is required
+          </span>
+          <span class="text-danger" *ngIf="f.password.touched && f.password.errors?.invalidPassword">
+            Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+            letter and 1 number
+          </span><br>
+  
+          <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password">
+          <span class="text-danger" *ngIf="(f.confirmPassword.touched || submitted) && f.confirmPassword.hasError('required')">
+            Confirm Password is required
+          </span>
+          <span class="text-danger" *ngIf="f.confirmPassword.touched && f.confirmPassword.errors?.passwordMismatch">
+            Passwords doesnot match
+          </span><br>
+  
+          Select Role :
+          <select name="role" id="role" class="form-control" formControlName="role">
+            <option value="ADMIN">Admin</option>
+            <option value="TUTOR">Tutor</option>
+            <option value="STUDENT">Student</option>
+          </select>
+          <div class="text-danger" *ngIf="(f.role.touched || submitted)&& f.role.hasError('required')">
+            Please select your Role
+          </div><br>
+  
+          <input type="submit" [disabled]="!registerform.valid" value="Register">
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <router-outlet></router-outlet>

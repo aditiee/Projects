@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Update Employee</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+	<h1 align="center">Update User Form</h1>
+    <form th:action="@{/update}" th:object="${user}" method="post">
+    	<p>Id: <input type="text" th:field="*{empid}" /></p>
+    	<div th:if="${#fields.hasErrors('empid')}" th:errors="*{empid}"></div>
+    	<p>Name: <input type="text" th:field="*{name}" /></p>
+    	<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    	<p> Position: <input type="text" th:field="*{position}" /></p>
+    	<div th:if="${#fields.hasErrors('position')}" th:errors="*{position}"></div>
+    	<p> Email: <input type="text" th:field="*{email}" /></p>
+    	<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    	<p> Telephone: <input type="text" th:field="*{telephone}" /></p>
+    	<div th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}"></div>
+    	 <p> Qualification: <input type="text" th:field="*{qualification}" /></p>
+    	<div th:if="${#fields.hasErrors('qualification')}" th:errors="*{qualification}"></div>
+    	 <p> Experience: <input type="text" th:field="*{experience}" /></p>
+    	<div th:if="${#fields.hasErrors('experience')}" th:errors="*{experience}"></div>
+    	 <p> Remarks: <input type="text" th:field="*{remarks}" /></p>
+    	<div th:if="${#fields.hasErrors('remarks')}" th:errors="*{remarks}"></div>
+    	 <p> Resumefile: <input type="text" th:field="*{resumefile}" /></p>
+    	<div th:if="${#fields.hasErrors('resumefile')}" th:errors="*{resumefile}"></div>
+    	 <p> Date of Birth: <input type="date" th:field="*{dateofbirth}" /></p>
+    	<div th:if="${#fields.hasErrors('dateofbirth')}" th:errors="*{dateofbirth}"></div>
+    	
+    	
+    	
+        <p><input type="submit" value="Update" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>

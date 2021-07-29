@@ -1,0 +1,58 @@
+  
+<!-- <table id="example" class="table table-striped" style="width:100%" *ngIf='userList && userList.length; else nostudent'>
+       <thead>
+    <tr>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Email</th>
+      <th scope="col">Mobile</th>
+    </tr>
+  </thead>
+    <tbody >
+    
+      
+            <tr *ngFor='let i of userList '>
+                <td>{{i.firstName}}</td>
+                <td>{{i.lastName}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.mobile}}</td>
+            
+            </tr>
+
+    
+ 
+
+    
+      </tbody>  
+    </table>
+   <ng-template #nostudent>
+        <h4 [ngStyle]="{'background-color': 'lightgrey','color':'#CC313D','text-align':'center'}">  No students  Available !!!</h4>
+      </ng-template> -->
+
+        <div class="mat-elevation-z8"> 
+    <mat-table [dataSource]="userList" matSort> 
+      <ng-container matColumnDef="sn">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> SN. </mat-header-cell>
+    <mat-cell *matCellDef="let element;let i=index">{{ i + 1 }}</mat-cell>
+      </ng-container>
+        <ng-container matColumnDef="Name"> 
+            <mat-header-cell *matHeaderCellDef>Name</mat-header-cell> 
+            <mat-cell *matCellDef="let element">{{element.firstName}}  {{element.lastName}}</mat-cell> 
+        </ng-container> 
+        <ng-container matColumnDef="Email"> 
+            <mat-header-cell *matHeaderCellDef>Email</mat-header-cell> 
+            <mat-cell *matCellDef="let element">{{element.email}}</mat-cell> 
+        </ng-container>
+
+        <ng-container matColumnDef="Mobile"> 
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Mobile</mat-header-cell> 
+            <mat-cell *matCellDef="let element">{{element.mobile}}</mat-cell> 
+        </ng-container> 
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row> 
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> 
+        
+    </mat-table> 
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons> 
+    </mat-paginator> 
+</div>
+  

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<title>Greeting Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<body>
+<h1 class="text-center"> User List </h1>
+	
+	<table class="table table-striped table-hovered">
+		<thead>
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Name</th>
+				<th scope="col">Position</th>
+				<th scope="col">Email</th>
+				<th scope="col">Telephone</th>
+				
+		
+				<th colspan="2" >Action</th>
+			</tr>
+		</thead>
+		<tbody th:each="u:${user}">
+			<tr>
+				<td><span th:text="${u.empid}"></span></td>
+				<td><span th:text="${u.name}"></span></td>
+				<td><span th:text="${u.position}"></span></td>
+				<td><span th:text="${u.email}"></span></td>
+				<td><span th:text="${u.telephone}"></span></td>
+				
+				<td><a class="btn btn-danger" th:href="@{/remove/{id}(id=${u.empid})}">Delete</a>
+				&nbsp;&nbsp;<a class="btn btn-primary" th:href="@{/update/{id}(id=${u.empid})}">Edit</a>
+				</td>
+				
+			</tr>
+		</tbody>
+	</table>
+	<p class="text-center"><a class="btn btn-success" href="adduser">Register User</a></p>
+</body>
+</html>

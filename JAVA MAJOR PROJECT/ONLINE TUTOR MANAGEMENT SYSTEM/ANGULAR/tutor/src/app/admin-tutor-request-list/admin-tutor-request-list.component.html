@@ -1,0 +1,35 @@
+<p>Tutor Requests</p>
+
+<div class="mat-elevation-z8"> 
+    <mat-table [dataSource]="tutors" matSort> 
+        <ng-container matColumnDef="Name"> 
+            <mat-header-cell *matHeaderCellDef> Name</mat-header-cell> 
+            <mat-cell *matCellDef="let element">{{element.firstName}} {{element.middleName}} {{element.lastName}}</mat-cell> 
+        </ng-container> 
+        <ng-container matColumnDef="Email"> 
+            <mat-header-cell *matHeaderCellDef>Email</mat-header-cell> 
+            <mat-cell *matCellDef="let element">{{element.email}}</mat-cell> 
+        </ng-container> 
+        <ng-container matColumnDef="Contact"> 
+            <mat-header-cell *matHeaderCellDef>Contact</mat-header-cell> 
+            <mat-cell *matCellDef="let element">{{element.mobile}}</mat-cell> 
+        </ng-container> 
+        <ng-container matColumnDef="Actions"> 
+            <mat-header-cell *matHeaderCellDef>Action</mat-header-cell> 
+            <mat-cell *matCellDef="let row" style="margin-right: 30px;"> 
+                <button mat-icon-button (click) = "acceptTutorRequest(row.id,row)"><mat-icon>done</mat-icon></button> 
+                <button mat-icon-button (click) = "deleteTutorRequest(row.id)"><mat-icon>delete</mat-icon></button> 
+            </mat-cell> 
+ 
+        </ng-container> 
+ 
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row> 
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> 
+ 
+    </mat-table> 
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons> 
+    </mat-paginator> 
+</div> 
+  
+ 
+ 

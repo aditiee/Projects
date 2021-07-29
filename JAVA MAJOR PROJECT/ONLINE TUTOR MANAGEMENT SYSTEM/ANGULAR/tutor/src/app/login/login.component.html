@@ -1,0 +1,68 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+/>
+</head>
+<body>
+<div class="container"><div class="hero">
+<div class="col-md-4 offset-md-4">
+   
+            <h3>Sign In</h3>
+<hr>
+        
+<form #loginForm="ngForm" (ngSubmit)='loginUser(loginForm)'>
+  
+        <div class="input-group form-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+        </div>
+        <input class="form-control" type="email" name="email" placeholder="Enter Your Email ID" #email='ngModel'
+            ngModel required email pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+            
+        
+    </div>
+        <div *ngIf='email.touched && email.invalid'>
+            <p class="text-danger" *ngIf='email.errors && email.errors.required'>
+                *This field is mandatory
+            </p>
+            <p class="text-danger" *ngIf='email.errors && email.errors.pattern'>
+                *Please Enter valid email id (eg. abc@gmail.com)
+            </p>
+        </div>
+    <div class="input-group form-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-key"></i></span>
+        </div>
+        <input class="form-control" type="password" name="password" placeholder="Enter Your password"
+            #password='ngModel' ngModel required password >
+    
+        
+    </div>
+        <div *ngIf='password.touched && password.invalid'>
+            <p class="text-danger" *ngIf='password.errors && password.errors.required'>
+                *This field is mandatory
+            </p>
+            
+        </div>
+    <div class="text-danger" *ngIf='error'>
+        {{error}}
+    </div>
+    <div class="float-right">
+
+        <button class="btn btn-dark " type="submit"  name="login" [disabled]='loginForm.invalid'>Login</button>
+&nbsp;       <button class="btn btn-dark" type="reset">Reset</button>
+     </div>
+    <br>
+    <br>
+    <br>
+
+    <label for="register">Don't have an account? <a routerLink="/register">Click Here</a></label>
+</form>
+
+</div>
+</div>
+
+
+</div>
+</body>
+
+

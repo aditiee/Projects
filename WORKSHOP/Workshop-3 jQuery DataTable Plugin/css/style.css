@@ -1,0 +1,7 @@
+body {
+  margin: 2rem;
+}
+
+.paginate_button {
+  border-radius: 0 !important;
+}

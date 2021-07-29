@@ -1,0 +1,33 @@
+  
+<table id="example" class="table table-striped" style="width:100%" *ngIf='merged && merged.length; else norequest'>
+       <thead>
+    <tr>
+        <th scope="col">TrainingName</th>
+      <th scope="col"> Tutor Name</th>
+      <th scope="col">Content</th>
+      <th scope="col">uploaded On</th>
+    </tr>
+  </thead>
+    <tbody >
+    
+      
+            <tr *ngFor='let i of merged '>
+                <td>{{i.trainingName}}</td>
+                <td>{{i.firstName}}  {{i.lastName}}</td>
+                <td>{{i.content}}</td>
+                <td>{{i.uploadedOn | date}}</td>
+                
+            </tr>
+
+    
+ 
+
+    
+      </tbody>  
+    </table>
+    
+   <ng-template #norequest>
+        <h4 [ngStyle]="{'background-color': 'lightgrey','color':'#CC313D','text-align':'center'}">  No Requests  Available !!!</h4>
+      </ng-template>
+
+  

@@ -1,0 +1,51 @@
+<!-- <table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> Sr.No</th>
+            <th> Content Name </th>
+            <th> Training Name</th>
+            <th> Student Name</th>
+            <th> Downloaded On</th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let user of finalstatus; let j= index" >
+            <td> {{j+1}} </td>
+            <td> {{  user.content }} </td>
+            <td> {{  user.trainingName }} </td>
+            <td> {{  user.firstName }} {{  user.lastName }} </td>
+            <td> {{  user.uploadedOn }} </td>
+        </tr>
+    </tbody>
+</table>  -->
+
+<div class="mat-elevation-z8"> 
+    <mat-table [dataSource]="finalstatus" matSort> 
+      <ng-container matColumnDef="sn">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> SN. </mat-header-cell>
+    <mat-cell *matCellDef="let element;let i=index">{{ i + 1 }}</mat-cell>
+  </ng-container>
+
+        <ng-container matColumnDef="ContentName"> 
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Content Name</mat-header-cell> 
+            <mat-cell *matCellDef="let element">{{element.content}}</mat-cell> 
+        </ng-container>
+        <ng-container matColumnDef="TrainingName"> 
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Training Name</mat-header-cell> 
+            <mat-cell *matCellDef="let element">{{element.trainingName}}</mat-cell> 
+        </ng-container> 
+        <ng-container matColumnDef="StudentName"> 
+            <mat-header-cell *matHeaderCellDef>Downloaded By</mat-header-cell> 
+            <mat-cell *matCellDef="let element">{{element.firstName}} {{element.lastName}}</mat-cell> 
+        </ng-container> 
+        <ng-container matColumnDef="DownloadedOn"> 
+            <mat-header-cell *matHeaderCellDef>Downloaded On</mat-header-cell> 
+            <mat-cell *matCellDef="let element">{{element.downloadedOn | date}}</mat-cell> 
+        </ng-container> 
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row> 
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> 
+        
+    </mat-table> 
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons> 
+    </mat-paginator> 

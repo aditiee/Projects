@@ -1,0 +1,40 @@
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.nav-item:hover{
+    background-color: rgb(221, 221, 221);
+ 
+    color: black;
+    
+    text-align: center;
+  
+   
+}
+mat-sidenav {
+    width: 280px;
+    padding:15px;
+}
+.mat-drawer { 
+    background-color: #3f51b5;
+    color:#fff;
+}
+.main-content {
+    padding:20px;
+}
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.content{
+padding-top: 50px;
+}
+
+.nav-item{
+    padding-top: 5px;
+    padding-bottom: 5px;
+   
+}
+a { 
+    color: white; 
+}
+
+

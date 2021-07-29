@@ -1,0 +1,10 @@
+.slideshow{
+    height:300px;
+    width: 300px;
+    margin: auto;
+}
+.slideshow img{
+    padding: 15px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+}
